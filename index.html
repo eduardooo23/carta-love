@@ -1,1 +1,189 @@
-<h1>Git Hub Page test</h1>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Carta de Amor</title>
+  <style>
+   body {
+  background: linear-gradient(135deg, #ffd6ec, #fce4ec, #ffe6fa, #f8bbd0, #ffc1e3);
+  background-size: 400% 400%;
+  animation: fondoBrillo 15s ease infinite;
+  font-family: 'Segoe UI', sans-serif;
+  color: #800040;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+@keyframes fondoBrillo {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+    .contenido {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+
+    .carta {
+      background: linear-gradient(145deg, #fffafc, #ffe6f0);
+      border-radius: 25px;
+      padding: 35px;
+      margin-top: 20px;
+      box-shadow: 0 8px 20px rgba(255, 105, 180, 0.3);
+      line-height: 1.8;
+      width: 100%;
+      box-sizing: border-box;
+      border: 2px solid #ffc0cb;
+      animation: aparecer 1.5s ease;
+    }
+
+    @keyframes aparecer {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .carta h2 {
+      color: #cc0066;
+      font-size: 30px;
+      margin-bottom: 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    .carta h2::after {
+      content: "💖";
+      position: absolute;
+      right: -30px;
+      animation: latido 1s infinite;
+    }
+
+    @keyframes latido {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.3); }
+    }
+
+    button {
+      margin-top: 25px;
+      background: linear-gradient(90deg, #ff69b4, #ff1493);
+      color: white;
+      border: none;
+      padding: 12px 26px;
+      font-size: 17px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s;
+      box-shadow: 0 4px 10px rgba(255, 105, 180, 0.4);
+    }
+
+    button:hover {
+      background: linear-gradient(90deg, #ff1493, #ff69b4);
+      transform: scale(1.08);
+    }
+
+    .collage {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 40px;
+      width: 100%;
+      box-sizing: border-box;
+      animation: aparecer 1.5s ease 0.5s both;
+    }
+
+    .collage img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .collage img:hover {
+      transform: scale(1.05) rotate(1deg);
+    }
+
+    /* corazones flotantes */
+    .corazon {
+      position: absolute;
+      font-size: 24px;
+      animation: flotar 8s linear infinite;
+      opacity: 0.3;
+    }
+
+    .corazon:nth-child(2) { top: 80%; left: 10%; animation-delay: 0s; }
+    .corazon:nth-child(3) { top: 90%; left: 30%; animation-delay: 2s; }
+    .corazon:nth-child(4) { top: 85%; left: 60%; animation-delay: 4s; }
+    .corazon:nth-child(5) { top: 95%; left: 80%; animation-delay: 1s; }
+
+    @keyframes flotar {
+      0% { transform: translateY(0) scale(1); opacity: 0.3; }
+      50% { transform: translateY(-40px) scale(1.3); opacity: 0.5; }
+      100% { transform: translateY(-80px) scale(1); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="contenido">
+    <div class="carta">
+      <h2>Para Briceyda, el amor de mi vida 💌</h2>
+      <p>
+        Hola mi amor 💖<br><br>
+        Solo quería decirte lo mucho que significas para mí.<br>
+        Cada día contigo es especial, y no necesito un motivo para recordártelo.<br><br>
+        Gracias por tu sonrisa, tu cariño, y por ser tú.<br>
+        Eres la persona más hermosa que conozco, por dentro y por fuera.<br><br>
+        Te amo con todo mi corazón ❤️<br><br>
+        Con amor,<br>
+        Tu programador favorito 😊
+      </p>
+      <button onclick="iniciarMusica(); mostrarPoema()">Haz clic para leer un poema 💌</button>
+    </div>
+
+    <div class="collage">
+      <img src="foto1.jpg" alt="Foto 1" />
+      <img src="foto2.jpg" alt="Foto 2" />
+      <img src="foto3.jpg" alt="Foto 3" />
+      <img src="foto4.jpg" alt="Foto 4" />
+    </div>
+  </div>
+
+  <!-- Corazones flotantes -->
+  <span class="corazon">💗</span>
+  <span class="corazon">💕</span>
+  <span class="corazon">💘</span>
+  <span class="corazon">💞</span>
+
+  <script>
+    const audio = new Audio('musica.mp3');
+
+    function iniciarMusica() {
+      audio.play().catch(e => {
+        console.log("Autoplay bloqueado por el navegador.");
+      });
+    }
+
+    const poemas = [
+      "Tu risa es mi canción favorita.",
+      "En tu mirada encuentro mi hogar.",
+      "Si tuviera que volver a empezar, te elegiría a ti otra vez.",
+      "Eres la mejor parte de mis días.",
+      "Estar contigo es el mejor código que la vida escribió.",
+    ];
+
+    function mostrarPoema() {
+      const poema = poemas[Math.floor(Math.random() * poemas.length)];
+      alert("💘 Poema para ti:\n\n" + poema);
+    }
+  </script>
+</body>
+</html>
